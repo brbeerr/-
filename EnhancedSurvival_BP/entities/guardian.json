@@ -1,0 +1,87 @@
+{
+  "format_version": "1.18.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:guardian",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["guardian", "monster"]
+      },
+      "minecraft:health": {
+        "value": 40,
+        "max": 40
+      },
+      "minecraft:attack": {
+        "damage": 10
+      },
+      "minecraft:collision_box": {
+        "width": 0.85,
+        "height": 0.85
+      },
+      "minecraft:movement": {
+        "value": 0.12
+      },
+      "minecraft:underwater_movement": {
+        "value": 0.15
+      },
+      "minecraft:breathable": {
+        "breathes_air": false,
+        "breathes_water": true,
+        "generates_bubbles": false
+      },
+      "minecraft:navigation.generic": {
+        "is_amphibious": false,
+        "can_swim": true
+      },
+      "minecraft:follow_range": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 0
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "any_of": [
+                { "test": "is_family", "subject": "other", "value": "player" },
+                { "test": "is_family", "subject": "other", "value": "squid" }
+              ]
+            },
+            "max_dist": 20
+          }
+        ],
+        "must_see": true,
+        "reselect_targets": true
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 3,
+        "attack_interval_min": 1.5,
+        "attack_interval_max": 2.5,
+        "attack_radius": 15.0
+      },
+      "minecraft:behavior.random_swim": {
+        "priority": 7,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 12.0
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 10 : 0"
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    }
+  }
+}

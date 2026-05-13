@@ -10,18 +10,18 @@
         "component_groups": {
             "minecraft:exploding": {
                 "minecraft:explode": {
-                    "fuse_length": 1.2,
+                    "fuse_length": 0.8,
                     "fuse_lit": true,
-                    "power": 4,
+                    "power": 5,
                     "causes_fire": false,
                     "destroy_affected_by_griefing": true
                 }
             },
             "minecraft:charged_exploding": {
                 "minecraft:explode": {
-                    "fuse_length": 1.2,
+                    "fuse_length": 0.8,
                     "fuse_lit": true,
-                    "power": 7,
+                    "power": 9,
                     "causes_fire": true,
                     "destroy_affected_by_griefing": true
                 }
@@ -31,18 +31,18 @@
             },
             "minecraft:forced_exploding": {
                 "minecraft:explode": {
-                    "fuse_length": 1.2,
+                    "fuse_length": 0.8,
                     "fuse_lit": true,
-                    "power": 4,
+                    "power": 5,
                     "causes_fire": false,
                     "destroy_affected_by_griefing": true
                 }
             },
             "minecraft:forced_charged_exploding": {
                 "minecraft:explode": {
-                    "fuse_length": 1.2,
+                    "fuse_length": 0.8,
                     "fuse_lit": true,
-                    "power": 7,
+                    "power": 9,
                     "causes_fire": true,
                     "destroy_affected_by_griefing": true
                 }

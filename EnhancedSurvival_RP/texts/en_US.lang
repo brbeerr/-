@@ -1,2 +1,26 @@
 pack.name=Enhanced Survival - Resources
-pack.description=Resource pack for Enhanced Survival addon - Makes survival harder!
+pack.description=Hardcore survival addon! Stronger mobs, faster hunger, deadly creepers!
+
+## Enhanced Mobs
+## Zombie: 25 HP, breaks doors, sees 35 blocks
+## Spider: Poisonous bite (8 sec)
+## Skeleton: 24 HP, faster shooting
+## Creeper: 25 HP, faster explosion (0.8s), bigger radius
+## Wolf (tamed): 30 HP, 8 damage - powerful protector
+## Phantom: 30-45 HP, 8-14 damage, aggressive
+## Enderman: 60 HP, 10 damage
+## Witch: 36 HP, throws potions faster
+## Drowned: 28 HP, poisonous attack
+## Pillager: 32 HP, faster shooting
+## Vindicator: 36 HP, 15 damage, very fast
+## Evoker: 32 HP, more fangs
+## Wither Skeleton: 28 HP, 12 sec wither effect
+## Ghast: Sees 100 blocks, accurate shots
+## Blaze: 28 HP, 5 fireballs burst
+## Guardian: 40 HP, stronger laser
+## Zombified Piglin: 28 HP, 12 damage, stays angry 45 sec
+
+## Survival Changes
+## Hunger depletes 1.5-2x faster
+## Insomnia starts after 2 days
+## Ore drops reduced by 25-30%

@@ -1,0 +1,81 @@
+{
+  "format_version": "1.18.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:ghast",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["ghast", "monster"]
+      },
+      "minecraft:health": {
+        "value": 15,
+        "max": 15
+      },
+      "minecraft:collision_box": {
+        "width": 4.0,
+        "height": 4.0
+      },
+      "minecraft:flying_speed": {
+        "value": 0.06
+      },
+      "minecraft:movement": {
+        "value": 0.05
+      },
+      "minecraft:navigation.fly": {
+        "can_path_over_water": true
+      },
+      "minecraft:movement.fly": {},
+      "minecraft:follow_range": {
+        "value": 100,
+        "max": 100
+      },
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 0
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 100
+          }
+        ],
+        "must_see": true,
+        "reselect_targets": true
+      },
+      "minecraft:behavior.ranged_attack": {
+        "priority": 2,
+        "attack_interval_min": 2.0,
+        "attack_interval_max": 4.0,
+        "attack_radius": 64.0
+      },
+      "minecraft:behavior.float": {
+        "priority": 6
+      },
+      "minecraft:behavior.random_fly": {
+        "priority": 7,
+        "speed_multiplier": 1.0
+      },
+      "minecraft:behavior.look_at_player": {
+        "priority": 8,
+        "look_distance": 64.0
+      },
+      "minecraft:experience_reward": {
+        "on_death": "query.last_hit_by_player ? 5 : 0"
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    }
+  }
+}

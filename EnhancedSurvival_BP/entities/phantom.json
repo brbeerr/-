@@ -1,0 +1,155 @@
+{
+  "format_version": "1.18.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:phantom",
+      "is_spawnable": true,
+      "is_summonable": true
+    },
+    "component_groups": {
+      "minecraft:phantom_adult": {
+        "minecraft:behavior.swoop_attack": {
+          "priority": 2,
+          "damage_reach": 0.2,
+          "speed_multiplier": 1.0,
+          "delay_range": [5.0, 10.0]
+        }
+      },
+      "minecraft:phantom_size_1": {
+        "minecraft:health": {
+          "value": 30,
+          "max": 30
+        },
+        "minecraft:attack": {
+          "damage": 8
+        },
+        "minecraft:scale": {
+          "value": 0.75
+        }
+      },
+      "minecraft:phantom_size_2": {
+        "minecraft:health": {
+          "value": 35,
+          "max": 35
+        },
+        "minecraft:attack": {
+          "damage": 10
+        },
+        "minecraft:scale": {
+          "value": 0.9
+        }
+      },
+      "minecraft:phantom_size_3": {
+        "minecraft:health": {
+          "value": 40,
+          "max": 40
+        },
+        "minecraft:attack": {
+          "damage": 12
+        },
+        "minecraft:scale": {
+          "value": 1.0
+        }
+      },
+      "minecraft:phantom_size_4": {
+        "minecraft:health": {
+          "value": 45,
+          "max": 45
+        },
+        "minecraft:attack": {
+          "damage": 14
+        },
+        "minecraft:scale": {
+          "value": 1.15
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["phantom", "undead", "monster"]
+      },
+      "minecraft:breathable": {
+        "breathes_air": true,
+        "breathes_water": true,
+        "generates_bubbles": false
+      },
+      "minecraft:collision_box": {
+        "width": 0.9,
+        "height": 0.5
+      },
+      "minecraft:flying_speed": {
+        "value": 0.15
+      },
+      "minecraft:movement": {
+        "value": 2.0
+      },
+      "minecraft:navigation.fly": {
+        "can_path_over_water": true
+      },
+      "minecraft:movement.fly": {},
+      "minecraft:burns_in_daylight": {},
+      "minecraft:behavior.hurt_by_target": {
+        "priority": 0
+      },
+      "minecraft:target_nearby_sensor": {
+        "inside_range": 64.0,
+        "outside_range": 80.0,
+        "must_see": true,
+        "on_inside_range": {
+          "event": "minecraft:target_player",
+          "target": "self"
+        }
+      },
+      "minecraft:behavior.nearest_attackable_target": {
+        "priority": 1,
+        "entity_types": [
+          {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "player"
+            },
+            "max_dist": 64
+          }
+        ],
+        "must_see": true,
+        "reselect_targets": true,
+        "within_radius": 64.0
+      },
+      "minecraft:damage_sensor": {
+        "triggers": {
+          "on_damage": {
+            "filters": {
+              "test": "is_family",
+              "subject": "other",
+              "value": "cat"
+            }
+          },
+          "deals_damage": true,
+          "damage_multiplier": 2.0
+        }
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      },
+      "minecraft:conditional_bandwidth_optimization": {}
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "sequence": [
+          { "add": { "component_groups": ["minecraft:phantom_adult"] } },
+          {
+            "randomize": [
+              { "weight": 25, "add": { "component_groups": ["minecraft:phantom_size_1"] } },
+              { "weight": 35, "add": { "component_groups": ["minecraft:phantom_size_2"] } },
+              { "weight": 25, "add": { "component_groups": ["minecraft:phantom_size_3"] } },
+              { "weight": 15, "add": { "component_groups": ["minecraft:phantom_size_4"] } }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
